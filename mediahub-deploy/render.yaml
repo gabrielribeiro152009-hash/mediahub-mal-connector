@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: mediahub-mal-connector
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: MAL_CLIENT_ID
+        sync: false
+      - key: MAL_CLIENT_SECRET
+        sync: false
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: BASE_URL
+        sync: false
